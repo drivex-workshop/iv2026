@@ -474,6 +474,82 @@
       font-size: 0.9rem;
     }
 
+    .challenge-tracks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.6rem;
+    }
+
+    .track-card {
+      background: var(--drivex-card-bg);
+      border: var(--drivex-border-subtle);
+      border-radius: var(--drivex-radius-xl);
+      padding: 1.6rem 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .track-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(15,23,42,0.55);
+    }
+
+    .track-card .track-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: var(--drivex-radius-full);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--drivex-primary);
+      border: 1px solid rgba(45,212,191,0.35);
+      background: rgba(45,212,191,0.08);
+      width: fit-content;
+      margin-bottom: 0.85rem;
+    }
+
+    .track-card .track-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--drivex-primary);
+      box-shadow: 0 0 8px rgba(45,212,191,0.7);
+    }
+
+    .track-card h3 {
+      color: #f9fafb;
+      font-size: 1.05rem;
+      font-weight: 640;
+      margin-bottom: 0.55rem;
+    }
+
+    .track-card .track-desc {
+      color: var(--drivex-text-soft);
+      font-size: 0.85rem;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.1rem;
+    }
+
+    .track-card .track-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--drivex-accent);
+      text-decoration: none;
+      transition: color 0.18s ease, gap 0.18s ease;
+    }
+
+    .track-card .track-link:hover {
+      color: var(--drivex-primary);
+      gap: 0.6rem;
+    }
+
     .footer-hero {
       background-color: #020817;
       border-top: 1px solid rgba(75,85,99,0.7);
@@ -1327,49 +1403,50 @@
       Tracks are designed in close collaboration with dataset creators and industry partners.
     </p>
 
-    <ul>
-      <li>
-        <p>
-          <b>V2I-Based Cooperative Perception</b><br>
-          Infrastructure–vehicle fusion using
-          <a href="https://tum-traffic-dataset.github.io/tumtraf-v2x/" target="_blank">TUMTraf-V2X</a>.
-          Focus on cooperative 3D detection and tracking with infrastructure-mounted LiDAR, radar, and cameras,
-          emphasizing occlusion handling, long-range awareness, and reliability under real-world conditions.
+    <div class="challenge-tracks">
+
+      <div class="track-card">
+        <span class="track-badge"><span class="dot"></span> Feb 18 – May 1</span>
+        <h3>TUMTraf-V2X</h3>
+        <p class="track-desc">
+          Vehicle-to-infrastructure cooperative 3D detection and tracking using the
+          <a href="https://tum-traffic-dataset.github.io/tumtraf-v2x/" target="_blank">TUMTraf-V2X</a> dataset.
+          Teams fuse infrastructure-mounted LiDAR, radar, and cameras with on-vehicle sensors
+          to tackle occlusion handling, long-range awareness, and reliability under real-world traffic conditions.
         </p>
-      </li>
+        <a class="track-link" href="https://www.codabench.org/competitions/14044/" target="_blank">
+          Go to challenge &rarr;
+        </a>
+      </div>
 
-      <li>
-        <p>
-          <b>Natural Language Instruction for Human Interaction and Vision-Language Navigation</b><br>
-          Built upon
-          <a href="https://mi3-lab.github.io/doScenes_challenge" target="_blank">doScenes</a>.
-          Participants design models for natural language instructions and visual language navigation
-          to facilitate research on human-vehicle instruction interactions.
+      <div class="track-card">
+        <span class="track-badge"><span class="dot"></span> Feb 11 – May 20</span>
+        <h3>doScenes</h3>
+        <p class="track-desc">
+          Natural-language-driven scene understanding and visual language navigation for autonomous vehicles.
+          Participants build models that interpret free-form human instructions and ground them in driving scenes,
+          advancing research on intuitive human-vehicle interaction.
         </p>
-      </li>
+        <a class="track-link" href="https://mi3-lab.github.io/doScenes_challenge" target="_blank">
+          Go to challenge &rarr;
+        </a>
+      </div>
 
-      <li>
-        <p>
-          <b>Multi-Agent Reasoning</b><br>
-          Using
-          <a href="https://todo" target="_blank">MDrive</a> 
-          teams explore a cooperative driving benchmark for end-to-end closed-loop multi-agent systems.
+      <div class="track-card">
+        <span class="track-badge"><span class="dot"></span> Feb 20 – May 1</span>
+        <h3>MDrive</h3>
+        <p class="track-desc">
+          End-to-end closed-loop cooperative driving across multiple agents.
+          Using the <a href="https://mdrive-challenge.github.io/" target="_blank">MDrive</a> benchmark,
+          teams develop and evaluate planning, communication, and coordination strategies
+          for safe multi-vehicle autonomy in complex traffic scenarios.
         </p>
-      </li>
-    </ul>
+        <a class="track-link" href="https://mdrive-challenge.github.io/" target="_blank">
+          Go to challenge &rarr;
+        </a>
+      </div>
 
-    <p><b>Competition Timeline</b></p>
-    <ul>
-      <li><b>Competition Announcement</b>: Feb 9, 2026 </li>
-      <li><b>Competition Start</b>: Feb 15, 2026 (10 weeks)</li>
-      <li><b>Submission Deadline</b>: May, 1 (23:59 PST)</li>
-      <li><b>Notification to Participants</b>: May 10, 2026</li>
-    </ul>
-
-    <p>
-      Top-performing teams will be invited to present at the workshop and will receive money prizes ($100) and award certificates. Detailed rules, baselines, and submission
-      instructions are available on the official challenge page.
-    </p>
+    </div>
   </div>
 </section>
 
