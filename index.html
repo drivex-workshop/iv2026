@@ -550,6 +550,104 @@
       gap: 0.6rem;
     }
 
+    .accepted-papers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.15rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .accepted-paper-card {
+      background: var(--drivex-card-bg);
+      border-radius: var(--drivex-radius-xl);
+      border: var(--drivex-border-subtle);
+      box-shadow: var(--drivex-shadow-soft);
+      padding: 1rem 1.15rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto auto;
+      column-gap: 1.25rem;
+      row-gap: 0.4rem;
+      align-items: start;
+    }
+
+    .accepted-paper-title {
+      margin: 0;
+      grid-column: 1;
+      grid-row: 1;
+      color: #f9fafb;
+      font-weight: 650;
+      font-size: 0.95rem;
+      line-height: 1.38;
+    }
+
+    .accepted-paper-meta {
+      margin: 0;
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 0.76rem;
+      color: var(--drivex-text-soft);
+      line-height: 1.55;
+    }
+
+    .accepted-paper-actions {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+      justify-self: end;
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 640px) {
+      .accepted-paper-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .accepted-paper-title {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .accepted-paper-meta {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .accepted-paper-actions {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: start;
+        align-self: start;
+      }
+    }
+
+    .accepted-paper-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--drivex-radius-full);
+      border: 1px solid rgba(56,189,248,0.4);
+      background: rgba(2,6,23,0.65);
+      color: #e5e7eb;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .accepted-paper-pdf:hover {
+      transform: translateY(-1px);
+      border-color: rgba(45,212,191,0.6);
+      color: var(--drivex-primary);
+    }
+
     .footer-hero {
       background-color: #020817;
       border-top: 1px solid rgba(75,85,99,0.7);
@@ -945,43 +1043,29 @@
         </tr>
         <tr>
           <td>17:00</td>
-          <td>17:10</td>
+          <td>17:20</td>
           <td>Paper Oral 1 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <td>17:10</td>
           <td>17:20</td>
-          <td>Paper Oral 2 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:20</td>
-          <td>17:30</td>
-          <td>Paper Oral 3 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:30</td>
           <td>17:40</td>
-          <td>Paper Oral 4 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
+          <td>Paper Oral 2 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>17:40</td>
           <td>17:50</td>
-          <td>Paper Oral 5 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
+          <td>Award Ceremony (Best Paper Awards)</td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>17:50</td>
           <td>18:00</td>
-          <td>Award Ceremony &amp; Closing</td>
+          <td>Final Remarks, Group Picture &amp; Closing</td>
           <td></td>
           <td></td>
         </tr>
@@ -1373,6 +1457,35 @@
     <p>
       Submissions must follow the official IEEE IV2026 style guidelines. Detailed submission instructions will be provided.
     </p>
+    <h3 class="subtitle" style="margin-top:1rem;color:var(--drivex-primary);">Accepted Papers</h3>
+    <div class="accepted-papers-grid">
+      <div class="accepted-paper-card">
+        <p class="accepted-paper-title">
+          OpenViCA: Video Continuation for Automotive Driving Scenes by Streamlining and Fine-Tuning Open Source Models with Public Data
+        </p>
+        <p class="accepted-paper-meta">
+          Bjorn Moller, Zhengyang Li, Malte Stelzer, Thomas Graave, Fabian Bettels, Muaaz Ataya and Tim Fingscheidt
+        </p>
+        <div class="accepted-paper-actions">
+          <a class="accepted-paper-pdf" href="./static/pdf/IV26_0652_FI.pdf" target="_blank" rel="noopener noreferrer" title="Open PDF in a new tab">
+            View PDF
+          </a>
+        </div>
+      </div>
+      <div class="accepted-paper-card">
+        <p class="accepted-paper-title">
+          AutoVDC: Automated Vision Data Cleaning Using Vision-Language Models
+        </p>
+        <p class="accepted-paper-meta">
+          Aditi Ramadwar, Santosh Vasa, Jnana Rama Krishna Darabattula, Md Zafar Anwar, Stanislaw Antol, Andrei Vatavu, Thomas Monninger, Sihao Ding
+        </p>
+        <div class="accepted-paper-actions">
+          <a class="accepted-paper-pdf" href="./static/pdf/IV26_0673_FI.pdf" target="_blank" rel="noopener noreferrer" title="Open PDF in a new tab">
+            View PDF
+          </a>
+        </div>
+      </div>
+    </div>
     <ul>
       <li><b>Submission Portal</b>: <a href="https://its.papercept.net" target="_blank">its.papercept.net</a></li>
       <li><b>Paper Submission Deadline</b>: January 30, 2026</li>
@@ -1924,6 +2037,15 @@
       btn.addEventListener('click', function () {
         anchorButtons.forEach(function (b) { b.classList.remove('is-active'); });
         btn.classList.add('is-active');
+      });
+    });
+
+    document.querySelectorAll('.accepted-paper-pdf').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var href = a.getAttribute('href');
+        if (!href || href === '#') {
+          e.preventDefault();
+        }
       });
     });
   });
