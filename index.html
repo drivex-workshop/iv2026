@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="keywords" content="DriveX, V2X, Cooperative Autonomous Driving, Foundation Models, IV2026, Workshop, 3D Perception, Vision-Language Models">
+  <meta name="keywords" content="DriveX, V2X, Cooperative Autonomous Driving, Foundation Models, IV 2026, Workshop, 3D Perception, Vision-Language Models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DriveX 2026 - Foundation Models for Autonomous Driving</title>
 
@@ -33,6 +33,11 @@
       --drivex-card-bg: radial-gradient(circle at top left, rgba(56,189,248,0.06), transparent),
                         radial-gradient(circle at top right, rgba(45,212,191,0.04), transparent),
                         #020817;
+      --drivex-navbar-pad-y: 0.75rem;
+      --drivex-logo-drivex-h: 100px;
+      --drivex-logo-ieee-h: 100px;
+      --drivex-logo-itss-h: 200px;
+      --drivex-navbar-height: calc(var(--drivex-logo-itss-h) + 2 * var(--drivex-navbar-pad-y));
     }
 
     html, body {
@@ -43,7 +48,7 @@
     }
 
     body {
-      padding-top: 4.25rem;
+      padding-top: var(--drivex-navbar-height);
     }
 
     a {
@@ -60,6 +65,24 @@
       background: radial-gradient(circle at top, rgba(45,212,191,0.06), transparent) var(--drivex-bg);
       border-bottom: 1px solid rgba(148,163,253,0.12);
       backdrop-filter: blur(14px);
+      min-height: var(--drivex-navbar-height);
+    }
+
+    .navbar-brand {
+      min-height: auto;
+      align-items: center;
+    }
+
+    .navbar-brand > .navbar-item {
+      display: inline-flex;
+      align-items: center;
+      min-height: auto;
+      padding-top: var(--drivex-navbar-pad-y);
+      padding-bottom: var(--drivex-navbar-pad-y);
+    }
+
+    .navbar-menu {
+      align-items: center;
     }
 
     .navbar-item,
@@ -82,6 +105,29 @@
       letter-spacing: 0.08em;
       font-size: 0.8rem;
       text-transform: uppercase;
+    }
+
+    .navbar-brand .navbar-logos {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .navbar-brand .navbar-logos img {
+      width: auto;
+      max-height: none;
+    }
+
+    .navbar-brand .navbar-logo-drivex {
+      height: var(--drivex-logo-drivex-h);
+    }
+
+    .navbar-brand .navbar-logo-ieee {
+      height: 50px;
+    }
+
+    .navbar-brand .navbar-logo-itss {
+      height: 100px;
     }
 
     .navbar-brand span.tagline {
@@ -353,8 +399,15 @@
     .schedule-table td {
       padding: 0.5rem 0.75rem;
       border-bottom: 1px solid rgba(31,41,55,0.9);
-      white-space: nowrap;
       vertical-align: middle;
+    }
+
+    .schedule-table td:first-child {
+      white-space: nowrap;
+    }
+
+    .schedule-table td:last-child {
+      white-space: normal;
     }
 
     .schedule-table th {
@@ -404,6 +457,162 @@
       border-color: rgba(236,72,153,0.5);
       color: #fb7185;
       background: rgba(9,9,11,0.98);
+    }
+
+    .schedule-label.coffee {
+      border-color: rgba(251,191,36,0.45);
+      color: #fbbf24;
+      background: rgba(15,23,42,0.96);
+    }
+
+    .schedule-session-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,253,0.14);
+      background: rgba(15,23,42,0.72);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    a.schedule-speaker-header-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      margin: -4px -6px 0;
+      padding: 4px 6px 0;
+      transition: background 0.18s ease;
+    }
+
+    a.schedule-speaker-header-link:hover {
+      background: rgba(45,212,191,0.08);
+    }
+
+    a.schedule-speaker-header-link:focus-visible {
+      outline: 2px solid var(--drivex-primary);
+      outline-offset: 2px;
+    }
+
+    a.schedule-speaker-header-link .schedule-session-logo {
+      pointer-events: none;
+    }
+
+    .schedule-session-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+    }
+
+    .schedule-session-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+
+    .schedule-session-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid rgba(148,163,253,0.32);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.55);
+    }
+
+    .schedule-session-text {
+      min-width: 0;
+    }
+
+    .schedule-session-kicker {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .schedule-session-title {
+      color: #f9fafb;
+      font-size: 0.88rem;
+      font-weight: 620;
+      letter-spacing: 0.01em;
+    }
+
+    .schedule-session-name {
+      margin: 0;
+      color: #f9fafb;
+      font-size: 0.94rem;
+      font-weight: 620;
+    }
+
+    .schedule-session-affiliation {
+      margin: 0.12rem 0 0;
+      color: var(--drivex-text-soft);
+      font-size: 0.74rem;
+      line-height: 1.5;
+    }
+
+    .schedule-session-logo-wrap {
+      flex-shrink: 0;
+      min-width: 112px;
+      height: 64px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .schedule-session-logo {
+      max-width: 100%;
+      max-height: 44px;
+      object-fit: contain;
+    }
+
+    .schedule-detail {
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,253,0.12);
+      background: rgba(2,6,23,0.58);
+      overflow: hidden;
+    }
+
+    .schedule-detail summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.68rem 0.82rem;
+      color: #f3f4f6;
+      font-size: 0.75rem;
+      font-weight: 560;
+    }
+
+    .schedule-detail summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .schedule-detail summary::after {
+      content: "+";
+      color: var(--drivex-primary);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .schedule-detail[open] summary::after {
+      content: "-";
+    }
+
+    .schedule-detail p {
+      margin: 0;
+      padding: 0 0.82rem 0.82rem;
+      color: var(--drivex-text-soft);
+      font-size: 0.74rem;
+      line-height: 1.65;
     }
 
     .speaker-card,
@@ -667,8 +876,10 @@
     }
 
     @media screen and (max-width: 1024px) {
-      body {
-        padding-top: 3.6rem;
+      :root {
+        --drivex-logo-drivex-h: 64px;
+        --drivex-logo-ieee-h: 64px;
+        --drivex-logo-itss-h: 128px;
       }
 
       .hero.drivex-hero {
@@ -691,6 +902,16 @@
       .anchor-buttons .button {
         font-size: 0.68rem;
       }
+
+      .schedule-session-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .schedule-session-logo-wrap {
+        min-width: 96px;
+        height: 56px;
+      }
     }
   </style>
 </head>
@@ -700,7 +921,11 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="#top">
-      <strong>DriveX 2026</strong>
+      <span class="navbar-logos">
+        <img src="./static/images/drivex_logo_white.png" alt="DriveX 2026" class="navbar-logo-drivex">
+        <img src="./static/images/ieee_logo_white.png" alt="IEEE" class="navbar-logo-ieee">
+        <img src="./static/images/IEEE_ITSS_Logo_white.png" alt="IEEE ITSS" class="navbar-logo-itss">
+      </span>
       <span class="tagline">
         <i class="fa fa-microchip"></i>
         Foundation Models × V2X
@@ -743,7 +968,7 @@
       <div class="hero-kicker">
         <span class="dot"></span>
         5th DriveX Workshop
-        <span>In conjunction with IV2026</span>
+        <span>In conjunction with Intelligent Vehicles (IV) Symposium 2026</span>
       </div>
       <h1 class="hero-title">
         Foundation Models for Autonomous Driving
@@ -766,7 +991,7 @@
         </span>
         <span>
           <i class="fa fa-university"></i>
-          In conjunction with IV2026
+          In conjunction with Intelligent Vehicles (IV) Symposium 2026
         </span>
       </div>
       <div class="hero-ctas">
@@ -797,7 +1022,7 @@
   </div>
 </section>
 
-<section class="sticky-anchor-nav">
+<section>
   <div class="container is-max-desktop">
     <div class="anchor-buttons">
       <a href="#introduction" class="button is-small is-rounded is-light">Introduction</a>
@@ -877,204 +1102,888 @@
     <div class="schedule-table-wrapper">
       <table class="schedule-table">
         <thead>
-        <tr>
-          <th style="width:100px;">Start</th>
-          <th style="width:100px;">End</th>
-          <th>Program</th>
-          <th style="width:200px;">Speaker</th>
-          <th style="width:250px;">Affiliation</th>
-        </tr>
+          <tr>
+            <th style="width: 130px">Time</th>
+            <th>Session</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>08:00</td>
-          <td>08:10</td>
-          <td>Introduction</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>08:10</td>
-          <td>08:30</td>
-          <td>Keynote Presentation 1 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Jim Misener</td>
-          <td>WSP</td>
-        </tr>
-        <tr>
-          <td>08:30</td>
-          <td>08:50</td>
-          <td>Keynote Presentation 2 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Jiaqi Ma</td>
-          <td>UCLA</td>
-        </tr>
-        <tr>
-          <td>08:50</td>
-          <td>09:10</td>
-          <td>Keynote Presentation 3 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Ignacio Alvarez</td>
-          <td>THI</td>
-        </tr>
-        <tr>
-          <td>09:10</td>
-          <td>09:30</td>
-          <td>Keynote Presentation 4 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Cathy Wu</td>
-          <td>MIT</td>
-        </tr>
-        <tr>
-          <td>09:30</td>
-          <td>10:00</td>
-          <td>Coffee Break</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10:00</td>
-          <td>10:20</td>
-          <td>Keynote Presentation 5 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Ziran Wang</td>
-          <td>Purdue Uni.</td>
-        </tr>
-        <tr>
-          <td>10:20</td>
-          <td>10:40</td>
-          <td>Keynote Presentation 6 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Vincent Fremont</td>
-          <td>École Centrale de Nantes</td>
-        </tr>
-        <tr>
-          <td>10:40</td>
-          <td>11:00</td>
-          <td>Keynote Presentation 7 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Bassam Alrifaee</td>
-          <td>Uni. of the German Federal Armed Forces Munich</td>
-        </tr>
-        <tr>
-          <td>11:00</td>
-          <td>11:20</td>
-          <td>Keynote Presentation 8 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Ayesha Choudhary</td>
-          <td>Jawaharlal Nehru Uni.</td>
-        </tr>
-        <tr>
-          <td>11:20</td>
-          <td>12:00</td>
-          <td>Panel Discussion I <span class="schedule-label panel"><i class="fa fa-comments"></i>Panel</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>12:00</td>
-          <td>13:00</td>
-          <td>Lunch</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>13:00</td>
-          <td>13:20</td>
-          <td>Keynote Presentation 9 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Thomas Bräunl</td>
-          <td>Uni. of Western Australia</td>
-        </tr>
-        <tr>
-          <td>13:20</td>
-          <td>13:40</td>
-          <td>Keynote Presentation 10 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Johannes Betz</td>
-          <td>TUM</td>
-        </tr>
-        <tr>
-          <td>13:40</td>
-          <td>14:00</td>
-          <td>Keynote Presentation 11 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Valentina Donzella</td>
-          <td>Queen Mary Uni. of London</td>
-        </tr>
-        <tr>
-          <td>14:00</td>
-          <td>14:20</td>
-          <td>Keynote Presentation 12 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Felix Heide</td>
-          <td>Princeton Uni. &amp; Torc Robotics</td>
-        </tr>
-        <tr>
-          <td>14:20</td>
-          <td>14:40</td>
-          <td>Coffee Break</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>14:40</td>
-          <td>15:00</td>
-          <td>Keynote Presentation 13 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Jiachen Li</td>
-          <td>Uni. of California Riverside</td>
-        </tr>
-        <tr>
-          <td>15:00</td>
-          <td>15:20</td>
-          <td>Keynote Presentation 14 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Prof. Fawad Ahmad</td>
-          <td>Rochester Institute of Technology</td>
-        </tr>
-        <tr>
-          <td>15:20</td>
-          <td>15:40</td>
-          <td>Keynote Presentation 15 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Dr. Ran Tian</td>
-          <td>NVIDIA</td>
-        </tr>
-        <tr>
-          <td>15:40</td>
-          <td>16:00</td>
-          <td>Keynote Presentation 16 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <td>Zhenzhen Liu</td>
-          <td>Cornell University</td>
-        </tr>
-        <tr>
-          <td>16:00</td>
-          <td>16:30</td>
-          <td>Panel Discussion II <span class="schedule-label panel"><i class="fa fa-comments"></i>Panel</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>16:30</td>
-          <td>17:00</td>
-          <td>Coffee Break</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:00</td>
-          <td>17:20</td>
-          <td>Paper Oral 1 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:20</td>
-          <td>17:40</td>
-          <td>Paper Oral 2 <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:40</td>
-          <td>17:50</td>
-          <td>Award Ceremony (Best Paper Awards)</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>17:50</td>
-          <td>18:00</td>
-          <td>Final Remarks, Group Picture &amp; Closing</td>
-          <td></td>
-          <td></td>
-        </tr>
+              <tr>
+                <td>08:00 – 08:10</td>
+                <td>Introduction</td>
+              </tr>
+              <tr>
+                <td>08:10 – 08:30</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://www.linkedin.com/in/misener/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="static/img/jim_misener.jpeg"
+                            alt="Jim Misener"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 1</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Jim Misener</p>
+                            <p class="schedule-session-affiliation">WSP</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.seeq.com/wp-content/uploads/2023/10/WSP-3.png"
+                            alt="WSP Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>08:30 – 08:50</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://mobility-lab.seas.ucla.edu/about/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="static/img/jiaqi_ma.jpg"
+                            alt="Prof. Dr. Jiaqi Ma"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 2</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Dr. Jiaqi Ma</p>
+                            <p class="schedule-session-affiliation">University of California, Los Angeles</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://network4sustainablenano.org/wp-content/uploads/2021/03/ucla-logo-transparent-blue-1.png"
+                            alt="UCLA Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p> Dr. Jiaqi Ma is Director of the FHWA/UCLA Center of
+                        Excellence on New Mobility and Automated Vehicles,
+                        Professor at the UCLA Samueli School of Engineering,
+                        Director of the UCLA Mobility Lab, and Associate
+                        Director of the UCLA Institute of Transportation
+                        Studies. He has led and managed numerous transportation
+                        research projects funded by the U.S. Department of
+                        Transportation, National Science Foundation, state
+                        Departments of Transportation, and other federal, state,
+                        and local agencies. His research spans automated
+                        driving, mobility digital twins, multimodal sensing,
+                        cooperative perception and decision-making, robotics,
+                        spatial data mining, simulation, and reasoning.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>08:50 – 09:10</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://ignacioalvmar.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://ignacioalvmar.com/images/profile.png"
+                            alt="Prof. Ignacio Alvarez"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 3</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Ignacio Alvarez</p>
+                            <p class="schedule-session-affiliation">THI &amp; Intel Labs</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/6/66/Technische_Hochschule_Ingolstadt.png"
+                            alt="THI Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>09:10 – 09:30</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://www.linkedin.com/in/cathywu/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.google.com/citations?view_op=view_photo&user=wyjZbeMAAAAJ&citpid=1"
+                            alt="Prof. Dr. Cathy Wu"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 4</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Dr. Cathy Wu</p>
+                            <p class="schedule-session-affiliation">Massachusetts Institute of Technology</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://download.logo.wine/logo/Massachusetts_Institute_of_Technology/Massachusetts_Institute_of_Technology-Logo.wine.png"
+                            alt="MIT Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>09:30 – 10:00</td>
+                <td>Coffee Break <span class="schedule-label coffee"><i class="fa fa-coffee"></i>Coffee Break</span></td>
+              </tr>
+              <tr>
+                <td>10:00 – 10:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://ziranw.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.google.com/citations?view_op=view_photo&user=hdKpuOEAAAAJ&citpid=1"
+                            alt="Prof. Dr. Ziran Wang"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 5</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Dr. Ziran Wang</p>
+                            <p class="schedule-session-affiliation">Purdue University</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="./static/images/purdue.jpg"
+                            alt="Purdue Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>10:20 – 10:40</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://sites.google.com/view/vincent-fremont-ecnantes/home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=0BzH_AEAAAAJ&citpid=4"
+                            alt="Prof. Vincent Fremont"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 6</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Vincent Fremont</p>
+                            <p class="schedule-session-affiliation">École Centrale de Nantes</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.ec-nantes.fr/medias/photo/logocn-blanc-2555px_1747920765609-png"
+                            alt="École Centrale de Nantes Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>10:40 – 11:00</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://scholar.google.com/citations?user=M8JL-poAAAAJ&hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=M8JL-poAAAAJ&citpid=9"
+                            alt="Prof. Bassam Alrifaee"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 7</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Bassam Alrifaee</p>
+                            <p class="schedule-session-affiliation">University of the German Federal Armed Forces Munich</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.unibw.de/home-en/@@download/image/portal_logo"
+                            alt="UniBwM Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>11:00 – 11:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://scholar.google.com/citations?user=mc1lJd4AAAAJ&hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://www.jnu.ac.in/sites/default/files/styles/medium/public/styles/medium/public/ayesha_0_0.jpg?itok=scbzILzV"
+                            alt="Prof. Ayesha Choudhary"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 8</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Ayesha Choudhary</p>
+                            <p class="schedule-session-affiliation">Jawaharlal Nehru University</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg"
+                            alt="JNU Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>11:20 – 12:00</td>
+                <td>Panel Discussion I <span class="schedule-label panel"><i class="fa fa-comments"></i>Panel</span></td>
+              </tr>
+              <tr>
+                <td>12:00 – 13:00</td>
+                <td>Lunch</td>
+              </tr>
+              <tr>
+                <td>13:00 – 13:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://scholar.google.com/citations?user=eA5VFBoAAAAJ&hl=de"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=eA5VFBoAAAAJ&citpid=2"
+                            alt="Prof. Thomas Bräunl"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 9</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Thomas Bräunl</p>
+                            <p class="schedule-session-affiliation">University of Western Australia</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://giving.uwa.edu.au/image/template/uwa-logo-white.png"
+                            alt="UWA Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>13:20 – 13:40</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://scholar.google.com/citations?user=6cuqviYAAAAJ&hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=6cuqviYAAAAJ&citpid=3"
+                            alt="Prof. Johannes Betz"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 10</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Johannes Betz</p>
+                            <p class="schedule-session-affiliation">TUM</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg"
+                            alt="TUM Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>13:40 – 14:00</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://scholar.google.com/citations?user=lV1A_88AAAAJ&hl=zh-CN"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=lV1A_88AAAAJ&citpid=3"
+                            alt="Prof. Valentina Donzella"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 11</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Valentina Donzella</p>
+                            <p class="schedule-session-affiliation">Queen Mary University of London</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.graduatesfirst.com/wp-content/uploads/2021/09/QMUL-1703764.jpg"
+                            alt="QMUL Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>14:00 – 14:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://en.wikipedia.org/wiki/Felix_Heide"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Felix_Heide_Algolux.jpg/500px-Felix_Heide_Algolux.jpg"
+                            alt="Prof. Felix Heide"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 12</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Felix Heide</p>
+                            <p class="schedule-session-affiliation">Princeton University &amp; Torc Robotics</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://uploads.knightlab.com/storymapjs/76d433a04ae6f4b81d1158c58cf96404/class-of-2022/_images/Princeton_seal.svg.png"
+                            alt="Princeton &amp; Torc Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>14:20 – 14:40</td>
+                <td>Coffee Break <span class="schedule-label coffee"><i class="fa fa-coffee"></i>Coffee Break</span></td>
+              </tr>
+              <tr>
+                <td>14:40 – 15:00</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://jiachenli94.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://jiachenli94.github.io/assets/img/profile_photo.jpg"
+                            alt="Prof. Dr. Jiachen Li"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 13</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Dr. Jiachen Li</p>
+                            <p class="schedule-session-affiliation">University of California, Riverside</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/aa/UC_Riverside_logo.svg"
+                            alt="UCR Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>15:00 – 15:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://www.rit.edu/directory/fwavcs-fawad-ahmad"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="static/img/fawad_ahmad.jpeg"
+                            alt="Prof. Fawad Ahmad"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 14</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Prof. Fawad Ahmad</p>
+                            <p class="schedule-session-affiliation">Rochester Institute of Technology</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.rit.edu/brandportal/sites/rit.edu.brandportal/files/2020-04/RIT__vert_w_k.png"
+                            alt="RIT Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>15:20 – 15:40</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://research.nvidia.com/labs/avg/author/ran-tian/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://scholar.google.com/citations?view_op=view_photo&user=uY4D8-wAAAAJ&citpid=1"
+                            alt="Dr. Ran Tian"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 15</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Dr. Ran Tian</p>
+                            <p class="schedule-session-affiliation">NVIDIA</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://drivex-workshop.github.io/eccv2026/static/images/nvidia_logo.png"
+                            alt="NVIDIA Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>15:40 – 16:00</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://zhenzhel.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://zhenzhel.github.io/imgs/profile.jpg"
+                            alt="Zhenzhen Liu"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Keynote Presentation 16</span>
+                              <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span>
+                            </div>
+                            <p class="schedule-session-name">Zhenzhen Liu</p>
+                            <p class="schedule-session-affiliation">Cornell University</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://www.pngkey.com/png/full/372-3728038_cornell-cornell-university-logo.png"
+                            alt="Cornell Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>16:00 – 16:30</td>
+                <td>Panel Discussion II <span class="schedule-label panel"><i class="fa fa-comments"></i>Panel</span></td>
+              </tr>
+              <tr>
+                <td>16:30 – 17:00</td>
+                <td>Coffee Break <span class="schedule-label coffee"><i class="fa fa-coffee"></i>Coffee Break</span></td>
+              </tr>
+              <tr>
+                <td>17:00 – 17:20</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://www.tu-braunschweig.de/ifn/institut/team/sv/moeller"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://www.tu-braunschweig.de/fileadmin/Redaktionsgruppen/Institute_Fakultaet_5/IFN/bilderifn/mitarbeiter/Bjoern-Moeller_120x150.jpg"
+                            alt="Bjorn Möller"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Paper Oral 1: OpenViCA: Video Continuation for Automotive Driving Scenes by Streamlining and Fine-Tuning Open Source Models with Public Data</span>
+                              <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span>
+                            </div>
+                            <p class="schedule-session-name">Bjorn Möller</p>
+                            <p class="schedule-session-affiliation">TU Braunschweig</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Siegel_TU_Braunschweig_transparent.svg"
+                            alt="TU Braunschweig Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Abstract will be announced closer to the workshop date.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>17:20 – 17:40</td>
+                <td>
+                  <div class="schedule-session-card">
+                    <a
+                      class="schedule-speaker-header-link"
+                      href="https://www.linkedin.com/in/santosh-vasa/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div class="schedule-session-header">
+                        <div class="schedule-session-profile">
+                          <img
+                            class="schedule-session-avatar"
+                            src="https://cdn.sanity.io/images/h6toihm1/production/db9ecefac5868057a601b87682637b3ce436feb1-480x480.png?auto=format&dpr=2&fit=max&q=75&w=96"
+                            alt="Santosh Vasa"
+                          />
+                          <div class="schedule-session-text">
+                            <div class="schedule-session-kicker">
+                              <span class="schedule-session-title">Paper Oral 2: AutoVDC: Automated Vision Data Cleaning Using Vision-Language Models</span>
+                              <span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span>
+                            </div>
+                            <p class="schedule-session-name">Santosh Vasa</p>
+                            <p class="schedule-session-affiliation">Mercedes-Benz Research &amp; Development North America</p>
+                          </div>
+                        </div>
+                        <div class="schedule-session-logo-wrap">
+                          <img
+                            class="schedule-session-logo"
+                            src="https://lever-client-logos.s3.us-west-2.amazonaws.com/0ddbaf83-8ff6-4071-a6d1-7929c3db9aed-1774628630112.png"
+                            alt="Mercedes-Benz Logo"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                    <details class="schedule-detail">
+                      <summary>Abstract</summary>
+                      <p>Training of autonomous driving systems requires extensive datasets with precise annotations to attain robust performance. Human annotations suffer from imperfections, and multiple iterations are often needed to produce high-quality datasets. However, manually reviewing large datasets is laborious and expensive. In this paper, we introduce AutoVDC (Automated Vision Data Cleaning) and investigate the utilization of Vision-Language Models (VLMs) to automatically identify erroneous annotations in vision datasets, thereby enabling users to eliminate these errors and enhance data quality.</p>
+                    </details>
+                    <details class="schedule-detail">
+                      <summary>Speaker Bio</summary>
+                      <p>Speaker bio will be announced closer to the workshop date.</p>
+                    </details>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>17:40 – 17:50</td>
+                <td>Award Ceremony (Best Paper Awards)</td>
+              </tr>
+              <tr>
+                <td>17:50 – 18:00</td>
+                <td>Final Remarks, Group Picture &amp; Closing</td>
+              </tr>
         </tbody>
       </table>
     </div>
@@ -1084,367 +1993,6 @@
   </div>
 </section>
 
-<section class="section" id="Keynote Speakers">
-
-  <div class="container is-max-desktop content">
-    <h2 class="title" id="speakers">Confirmed Keynote Speakers</h2>
-
-    <!-- Jiachen Li -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://jiachenli94.github.io/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://jiachenli94.github.io/assets/img/profile_photo.jpg"
-                 alt="Prof. Dr. Jiachen Li">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Dr. Jiachen Li</p>
-            <p class="keynote-affiliation">University of California, Riverside</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/a/aa/UC_Riverside_logo.svg"
-                 alt="UCR Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Ran Tian -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://research.nvidia.com/labs/avg/author/ran-tian/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.google.com/citations?view_op=view_photo&user=uY4D8-wAAAAJ&citpid=1"
-                 alt="Dr. Ran Tian">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Dr. Ran Tian</p>
-            <p class="keynote-affiliation">NVIDIA</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/NVIDIA_logo.svg/1280px-NVIDIA_logo.svg.png"
-                 alt="NVIDIA Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Jim Misener -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://www.linkedin.com/in/misener/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="static/img/jim_misener.jpeg"
-                 alt="Jim Misener">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Jim Misener</p>
-            <p class="keynote-affiliation">WSP</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://www.seeq.com/wp-content/uploads/2023/10/WSP-3.png"
-                 alt="Qualcomm Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Cathy Wu -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://www.linkedin.com/in/cathywu/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.google.com/citations?view_op=view_photo&user=wyjZbeMAAAAJ&citpid=1"
-                 alt="Prof. Dr. Cathy Wu">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Dr. Cathy Wu</p>
-            <p class="keynote-affiliation">Massachusetts Institute of Technology</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://download.logo.wine/logo/Massachusetts_Institute_of_Technology/Massachusetts_Institute_of_Technology-Logo.wine.png"
-                 alt="MIT Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Ziran Wang -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://ziranw.github.io/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.google.com/citations?view_op=view_photo&user=hdKpuOEAAAAJ&citpid=1"
-                 alt="Prof. Dr. Ziran Wang">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Dr. Ziran Wang</p>
-            <p class="keynote-affiliation">Purdue University</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://engineering.purdue.edu/ECE/Communications/files/PU-V-Full-RGB.png"
-                 alt="Purdue Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Jiaqi Ma -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://mobility-lab.seas.ucla.edu/about/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="static/img/jiaqi_ma.jpg"
-                 alt="Prof. Dr. Jiaqi Ma">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Dr. Jiaqi Ma</p>
-            <p class="keynote-affiliation">University of California, Los Angeles</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://network4sustainablenano.org/wp-content/uploads/2021/03/ucla-logo-transparent-blue-1.png"
-                 alt="UCLA Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Ignacio Alvarez -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://ignacioalvmar.com/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://ignacioalvmar.com/images/profile.png"
-                 alt="Prof. Ignacio Alvarez">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Ignacio Alvarez</p>
-            <p class="keynote-affiliation">THI &amp; Intel Labs</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/6/66/Technische_Hochschule_Ingolstadt.png"
-                 alt="THI">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Vincent Fremont -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://sites.google.com/view/vincent-fremont-ecnantes/home" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=0BzH_AEAAAAJ&citpid=4"
-                 alt="Prof. Vincent Fremont">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Vincent Fremont</p>
-            <p class="keynote-affiliation">École Centrale de Nantes</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/en/a/ac/Centrale_Nantes_Logo.svg"
-                 alt="École Centrale de Nantes Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Bassam Alrifaee -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://scholar.google.com/citations?user=M8JL-poAAAAJ&hl=en" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=M8JL-poAAAAJ&citpid=9"
-                 alt="Prof. Bassam Alrifaee">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Bassam Alrifaee</p>
-            <p class="keynote-affiliation">Uni. of the German Federal Armed Forces Munich</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://www.unibw.de/home-en/@@download/image/portal_logo"
-                 alt="UniBwM Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Ayesha Choudhary -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://scholar.google.com/citations?user=mc1lJd4AAAAJ&hl=en" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://www.jnu.ac.in/sites/default/files/styles/medium/public/styles/medium/public/ayesha_0_0.jpg?itok=scbzILzV"
-                 alt="Prof. Ayesha Choudhary">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Ayesha Choudhary</p>
-            <p class="keynote-affiliation">Jawaharlal Nehru University</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg"
-                 alt="JNU Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Thomas Bräunl -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://scholar.google.com/citations?user=eA5VFBoAAAAJ&hl=de" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=eA5VFBoAAAAJ&citpid=2"
-                 alt="Prof. Thomas Bräunl">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Thomas Bräunl</p>
-            <p class="keynote-affiliation">University of Western Australia</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://usercontent.one/wp/studyoptions.com/wp-content/uploads/2021/09/The-University-of-Western-Australia-logo-profile.jpg"
-                 alt="UWA Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Johannes Betz -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://scholar.google.com/citations?user=6cuqviYAAAAJ&hl=en" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=6cuqviYAAAAJ&citpid=3"
-                 alt="Prof. Johannes Betz">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Johannes Betz</p>
-            <p class="keynote-affiliation">TUM</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg"
-                 alt="TUM Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Valentina Donzella -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://scholar.google.com/citations?user=lV1A_88AAAAJ&hl=zh-CN" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=lV1A_88AAAAJ&citpid=3"
-                 alt="Prof. Valentina Donzella">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Valentina Donzella</p>
-            <p class="keynote-affiliation">Queen Mary University of London</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://www.graduatesfirst.com/wp-content/uploads/2021/09/QMUL-1703764.jpg"
-                 alt="QMUL Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Felix Heide -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://en.wikipedia.org/wiki/Felix_Heide" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Felix_Heide_Algolux.jpg/500px-Felix_Heide_Algolux.jpg"
-                 alt="Prof. Felix Heide">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Felix Heide</p>
-            <p class="keynote-affiliation">Princeton University &amp; Torc Robotics</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://uploads.knightlab.com/storymapjs/76d433a04ae6f4b81d1158c58cf96404/class-of-2022/_images/Princeton_seal.svg.png"
-                 alt="Princeton & Torc Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Fawad Ahmad -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://www.rit.edu/directory/fwavcs-fawad-ahmad" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="static/img/fawad_ahmad.jpeg"
-                 alt="Prof. Fawad Ahmad">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Prof. Fawad Ahmad</p>
-            <p class="keynote-affiliation">Rochester Institute of Technology</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rochester_Institute_of_Technology_seal.svg/2048px-Rochester_Institute_of_Technology_seal.svg.png"
-                 alt="RIT Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Zhenzhen Liu -->
-    <div class="card keynote-card">
-      <a class="keynote-link" href="https://zhenzhel.github.io/" target="_blank">
-        <div class="keynote-inner">
-          <div class="keynote-avatar-wrap">
-            <img class="keynote-avatar"
-                 src="https://zhenzhel.github.io/imgs/profile.jpg"
-                 alt="Zhenzhen Liu">
-          </div>
-          <div class="keynote-text">
-            <p class="keynote-name">Zhenzhen Liu</p>
-            <p class="keynote-affiliation">Cornell University</p>
-          </div>
-          <div class="keynote-logo-wrap">
-            <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/1200px-Cornell_University_seal.svg.png"
-                 alt="Cornell Logo">
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-</section>
 
 <section class="section" id="paper-track">
   <div class="container is-max-desktop content">
@@ -1461,7 +2009,7 @@
       <li>4-page extended abstracts or 8-page versions of recently published work (non-archival, not included in proceedings).</li>
     </ul>
     <p>
-      Submissions must follow the official IEEE IV2026 style guidelines. Detailed submission instructions will be provided.
+      Submissions must follow the official IEEE IV 2026 style guidelines. Detailed submission instructions will be provided.
     </p>
     <h3 class="subtitle" style="margin-top:1rem;color:var(--drivex-primary);">Accepted Papers</h3>
     <div class="accepted-papers-grid">
@@ -1990,18 +2538,21 @@
     <div class="container has-text-centered">
       <p class="footer-text">
         DriveX 2026 - Foundation Models for V2X-Based Cooperative Autonomous Driving<br>
-        In conjunction with IV2026 • June 22, 2026 • Detroit, MI, United States
+        In conjunction with IV 2026 • June 22, 2026 • Detroit, MI, United States
       </p>
     </div>
   </div>
 </section>
 
 <style>
+
 .footer-hero-banner {
   width: 100%;
   height: 260px; 
-  background: url("https://upload.wikimedia.org/wikipedia/commons/a/a7/Detroit_Skyline_%28123143197%29.jpeg")
-    center top / cover no-repeat;  
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.25)),
+    url("https://upload.wikimedia.org/wikipedia/commons/a/a7/Detroit_Skyline_%28123143197%29.jpeg")
+      center/cover no-repeat;
   margin: 0;
   padding: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
